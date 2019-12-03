@@ -1,3 +1,4 @@
+#ERROR LIKELY CAUSED DUE TO NOT GETTING THE CHANCE TO MOVE AWAY.
 print("JEFF IS BACK")
 print("JEFF")
 scale = 1
@@ -9,7 +10,8 @@ screen = pygame.display.set_mode(size)
 import sys
 import random
 import time
-
+y0rn=0
+npcheck=False
 x = [1, 3, 1]
 print("cow")
 # NEW X FORMAT: x,y,room,Username,TextEntered.
@@ -216,6 +218,7 @@ def move(nio):
 
 
 def npcs():
+    global y0rn
     global npc
     global npc1
     global room
@@ -260,80 +263,72 @@ def npcs():
     while (iq < len(npcinter)):
         if (npcinter[iq][4] == 1):
             if (x[0] == npcinter[iq][1] and x[1] - 1 == npcinter[iq][2]):
-                scroll("Would you like to talk with " + npcinter[iq][3] + "? (y/n)", 0, "")
+                scroll("Would you like to talk with " + npcinter[iq][3] + "? (y/n)", 0, "",25)
                 y0rn = boxes("Yes", "No", "", "")
 
-                if yOrn == "y":
-                    clear(69)
-                    board()
+                if yOrn == 1:
+
                     if (npcinter[iq][8] == "Jeff"):
-                        NpcOps.Jeff(npcinter[iq][3], npcinter[iq][0])
+                        Jeff(npcinter[iq][3], npcinter[iq][0])
                     elif (npcinter[iq][8] == "BillyBoBob"):
-                        NpcOps.BillyBoBob(npcinter[iq][3], npcinter[iq][0])
+                        BillyBoBob(npcinter[iq][3], npcinter[iq][0])
                     elif (npcinter[iq][8] == "Priest"):
-                        NpcOps.Priest(npcinter[iq][3], npcinter[iq][0])
+                        Priest(npcinter[iq][3], npcinter[iq][0])
 
         if (npcinter[iq][5] == 1):
             if (x[1] == npcinter[iq][2] and x[0] - 1 == npcinter[iq][1]):
-                board()
-                scroll("Would you like to talk with " + npcinter[iq][3] + "? (y/n)")
-                clear(4)
-                yOrn = input().lower()
-                if yOrn == "y":
-                    clear(69)
-                    board()
-                    if (npcinter[iq][8] == "Jeff"):
-                        NpcOps.Jeff(npcinter[iq][3], npcinter[iq][0])
-                    elif (npcinter[iq][8] == "BillyBoBob"):
-                        NpcOps.BillyBoBob(npcinter[iq][3], npcinter[iq][0])
-                    elif (npcinter[iq][8] == "Priest"):
-                        NpcOps.Priest(npcinter[iq][3], npcinter[iq][0])
+                scroll("Would you like to talk with " + npcinter[iq][3] + "? (y/n)", 0, "", 25)
+                y0rn = boxes("Yes", "No", "", "")
 
+                if yOrn == 1:
+
+                    if (npcinter[iq][8] == "Jeff"):
+                        Jeff(npcinter[iq][3], npcinter[iq][0])
+                    elif (npcinter[iq][8] == "BillyBoBob"):
+                        BillyBoBob(npcinter[iq][3], npcinter[iq][0])
+                    elif (npcinter[iq][8] == "Priest"):
+                        Priest(npcinter[iq][3], npcinter[iq][0])
         if (npcinter[iq][6] == 1):
             if (x[0] == npcinter[iq][1] and x[1] + 1 == npcinter[iq][2]):
-                board()
-                scroll("Would you like to talk with " + npcinter[iq][3] + "? (y/n)")
-                clear(4)
-                yOrn = input().lower()
-                if yOrn == "y":
-                    clear(69)
-                    board()
+                scroll("Would you like to talk with " + npcinter[iq][3] + "? (y/n)", 0, "", 25)
+
+                y0rn = boxes("Yes", "No", "", "")
+
+                if yOrn == 1:
+
                     if (npcinter[iq][8] == "Jeff"):
-                        NpcOps.Jeff(npcinter[iq][3], npcinter[iq][0])
+                        Jeff(npcinter[iq][3], npcinter[iq][0])
                     elif (npcinter[iq][8] == "BillyBoBob"):
-                        NpcOps.BillyBoBob(npcinter[iq][3], npcinter[iq][0])
+                        BillyBoBob(npcinter[iq][3], npcinter[iq][0])
                     elif (npcinter[iq][8] == "Priest"):
-                        NpcOps.Priest(npcinter[iq][3], npcinter[iq][0])
+                        Priest(npcinter[iq][3], npcinter[iq][0])
         if (npcinter[iq][7] == 1):
             if (x[1] == npcinter[iq][2] and x[0] + 1 == npcinter[iq][1]):
-                board()
-                scroll("Would you like to talk with " + npcinter[iq][3] + "? (y/n)")
-                clear(4)
-                yOrn = input().lower()
-                if yOrn == "y":
-                    clear(69)
-                    board()
-                    if (npcinter[iq][8] == "Jeff"):
-                        NpcOps.Jeff(npcinter[iq][3], npcinter[iq][0])
-                    elif (npcinter[iq][8] == "BillyBoBob"):
-                        NpcOps.BillyBoBob(npcinter[iq][3], npcinter[iq][0])
-                    elif (npcinter[iq][8] == "Priest"):
-                        NpcOps.Priest(npcinter[iq][3], npcinter[iq][0])
-        if (x[0] == npcinter[iq][1] and x[1] == npcinter[iq][2]):
-            board()
-            scroll("Would you like to talk with " + npcinter[iq][3] + "? (y/n)")
-            clear(4)
-            yOrn = input().lower()
-            if yOrn == "y":
-                clear(69)
-                board()
-                if (npcinter[iq][8] == "Jeff"):
-                    NpcOps.Jeff(npcinter[iq][3], npcinter[iq][0])
-                elif (npcinter[iq][8] == "BillyBoBob"):
-                    NpcOps.BillyBoBob(npcinter[iq][3], npcinter[iq][0])
-                elif (npcinter[iq][8] == "Priest"):
-                    NpcOps.Priest(npcinter[iq][3], npcinter[iq][0])
+                scroll("Would you like to talk with " + npcinter[iq][3] + "? (y/n)", 0, "", 25)
+                y0rn = boxes("Yes", "No", "", "")
 
+                if yOrn == 1:
+
+                    if (npcinter[iq][8] == "Jeff"):
+                        Jeff(npcinter[iq][3], npcinter[iq][0])
+                    elif (npcinter[iq][8] == "BillyBoBob"):
+                        BillyBoBob(npcinter[iq][3], npcinter[iq][0])
+                    elif (npcinter[iq][8] == "Priest"):
+                        Priest(npcinter[iq][3], npcinter[iq][0])
+        if (x[0] == npcinter[iq][1] and x[1] == npcinter[iq][2]):
+            scroll("Would you like to talk with " + npcinter[iq][3] + "? (y/n)", 0, "", 25)
+            y0rn = boxes("Yes", "No", "", "")
+
+            if yOrn == 1:
+
+                if (npcinter[iq][8] == "Jeff"):
+                    Jeff(npcinter[iq][3], npcinter[iq][0])
+                elif (npcinter[iq][8] == "BillyBoBob"):
+                    BillyBoBob(npcinter[iq][3], npcinter[iq][0])
+                elif (npcinter[iq][8] == "Priest"):
+                    Priest(npcinter[iq][3], npcinter[iq][0])
+
+        print("Hi")
         iq = iq + 1
 
 
@@ -412,7 +407,12 @@ def boxes(a, b, c, d):
             easycount = easycount + 1
         pygame.display.flip()
 
-
+def Jeff():
+    scroll("Hi bois whats up",5,"",25)
+def BillyBoBob():
+    ""
+def Priest():
+    ""
 def scroll(strr, ti, name, fontsize):
     global done
 
@@ -620,6 +620,7 @@ while (done == False):
     # screen.blit(font.render("0 00",True,WHITE),[0,30] )
     # screen.blit(font.render("░░░",True,WHITE),[0,60])
     pygame.display.flip()
+    npcs()
     clock = pygame.time.Clock()
     clock.tick(60)
 
